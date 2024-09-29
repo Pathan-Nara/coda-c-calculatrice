@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -14,48 +15,79 @@ int main()
 	{
 		printf("Choisissez l'opération que vous souhaitez effectuer \n");
 		printf("(vous avez le choix entre '+', '-', '*', '/', '%%') \n");
-		scanf("%c", &symb);
-		printf("Parfait, maintenant choisissez un nombre : \n");
-		printf("nombre numero 1 ? \n");
-		scanf("%d", &nb1);
-		printf("nombre numero 2 ? \n");
-		scanf("%d", &nb2);
-		if(symb == '+')
+		scanf(" %c", &symb);
+		if(symb != '+' && symb != '-' && symb != '*' && symb != '/' && symb != '%')
 		{
-			printf("addition \n");
+			printf("le caractère n'est pas reconnue veuillez réessayer\n");
+                        printf("--------------------------------------------\n");
+		}
+		else
+		{
 			fin = 1;
 		}
+	}
+	printf("Parfait, maintenant choisissez un nombre : \n");
+	printf("nombre numero 1 ? \n");
+	scanf("%d", &nb1);
+	printf("nombre numero 2 ? \n");
+	scanf("%d", &nb2);
+	if(symb == '+')
+	{
+		int res = nb1 + nb2;
+		printf("Le resultat de l'opération est... \n");
+		printf("%d\n", res);
+	}
 
-		else if(symb == '-')
-		{
-			printf("soustraction \n");
-			fin = 1;
-		}
+	else if(symb == '-')
+	{
+		int res = nb1 - nb2;
+                printf("Le resultat de l'opération est... \n");
+                printf("%d\n", res);
+	}
 
-		else if(symb == '*')
-		{
-			printf("multiplication \n");
-			fin = 1;
-		}
+	else if(symb == '*')
+	{
+		int res = nb1 * nb2;
+                printf("Le resultat de l'opération est... \n");
+                printf("%d\n", res);
+	}
 
-		else if(symb == '/')
-		{
-			printf("division \n");
-			fin = 1;
-		}
+	else if(symb == '/')
+	{
 
-		else if(symb == '%')
+		if(nb1 == 0 || nb2 == 0)
 		{
-			printf("modulo \n");
-			fin = 1;
+			printf("Erreur, impossible de diviser par 0\n");
+			exit(0);
 		}
 
 		else
 		{
-			printf("le caractère n'est pas reconnue veuillez réessayer. \n");
-			printf(" -------------------------------------------- \n");
-
+			double nb1f = nb1;
+			double nb2f = nb2;
+			double res = nb1f/nb2f;
+			printf("Le resulat de l'opération est... \n");
+			printf("%.5f\n", res);
 		}
 	}
+
+	else if(symb == '%')
+	{
+
+		if(nb1 == 0 || nb2 == 0)
+                {
+                        printf("Erreur, impossible de diviser par 0\n");
+                        exit(0);
+                }
+
+                else
+                {
+                        int res = nb1%nb2;
+                        printf("Le resulat de l'opération est... \n");
+                        printf("%d\n", res);
+                }
+
+	}
+
 	exit(0);
 }
