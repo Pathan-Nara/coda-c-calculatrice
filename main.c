@@ -15,7 +15,11 @@ int main()
 		printf("Choisissez l'opération que vous souhaitez effectuer \n");
 		printf("(vous avez le choix entre '+', '-', '*', '/', '%%') \n");
 		scanf("%c", &symb);
-
+		printf("Parfait, maintenant choisissez un nombre : \n");
+		printf("nombre numero 1 ? \n");
+		scanf("%d", &nb1);
+		printf("nombre numero 2 ? \n");
+		scanf("%d", &nb2);
 		if(symb == '+')
 		{
 			printf("addition \n");
